@@ -1,12 +1,22 @@
+
+
 {
-  "name": "tk-social-media-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+"name": "tk-social-network-api",
+"version": "1.0.0",
+"description": "server routes for a social network application system",
+"main": "server.js",
+"author": "Todd Kridel",
+"license": "MIT",
+"scripts": 
+  {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js"
   },
-  "author": "Todd Kridel",
-  "license": "MIT"
+"dependencies": 
+  {
+  "express": "^4.17.1",
+  "mongoose": "^6.0.13",
+  "mongoose-type-email": "^1.1.2"
+  }
 }
+
