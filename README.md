@@ -81,62 +81,90 @@ To use this application...at after when installing the application and its datab
 #### >>> User records: [ base route: /api/users ] <<<
 
 * GET all user records and display a summarized listing.
+
   [ GET route: /api/users/ ]
+
   [ route title in Insomnia: Users -- Get All and Also Get All Associated Thought References and Friend References ]
 
 * GET a single user record and display a detailed view that includes populated thought data and friend data; by using the record ID in a URL query parameter.
+
   [ GET route: /api/users/:userId ]
+
   [ route title in Insomnia: User -- Get By /ID  and Also Get Associated Thought References and Friend References ]
 
 * POST-create a new user record; by using an HTTP request form and JSON format to provide the necessary field data: username and email; and during that process a new record ID is automatically created.
+
   [ POST route: /api/users/ + JSON form ]
+
   [ route title in Insomnia: User -- Create By Form ]
 
 * PUT-update a user record; by using the record ID in a URL query parameter and by using an HTTP request form and JSON format to provide the necessary field data: username and email.
+
   [ PUT route: /api/users/:userId + JSON form ]
+
   [ route title in Insomnia: User -- Update By /ID and Form ]
 
 * DELETE a user record; by using the record ID in a URL query parameter.
 + BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.
+
   [ DELETE route: /api/users/:userId/andThoughts ]
+
   [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Thoughts and Reactions]
 
 Additional User features/routes:
 
 * DELETE a user record ID reference of an already-deleted-user from all of the user records of all of the friends of the deleted user; by using the record ID of the deleted user in a URL query parameter; supplemental/utility function.
+
   [ DELETE route: /api/users/:userId/fromFriends ]
+
   [ route title in Insomnia: User -- Delete From Friends ]
 
 * DELETE a user record and PUT-update-remove the friend record ID reference that is in the user records of all of the friends of the deleted user; by using the record ID of the deleted user in a URL query parameter.
+
   [ DELETE route: /api/users/:userId/andFromFriends ]
+
   [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Friends ]
 
 * DELETE all of thought records and the associated reaction records of an already-deleted-user; by using the record ID of the deleted user in a URL query parameter; supplemental/utility function.
+
   [ DELETE route: /api/users/:userId/Thoughts ]
+
   [ route title in Insomnia: User -- Delete Thoughts and Reactions ]
 
 * DELETE a user record and all of the associated thought records and reaction records; and UPDATE-remove all of ID reference records of the deleted user in the friends field arrays of all of the user records of the friends of the deleted user. * THE DEVELOPMENT OF THIS DESIRED EVENTUAL ALL-INCLUSIVE FUNCTION CONTINUES TO BE IN-PROGRESS (with some re-occurring functional bugs/glitches) *; and during the in-progress time there are 2 function-pair-usages (at above) that each can achieve the same effect (DELETE user and thought/reaction records + UPDATE-remove friend ID reference records; or DELETE user and friend ID references + DELETE thought/reaction records).
+
   [ DELETE route: /api/users/ ]  [ * DO NOT USE YET * ]
+
   [ route title in Insomnia: User -- Delete By /ID and Also Delete Associated Friends and Thoughts and Reactions ]
 
 * DELETE a user record but do not also update friend user records or delete thought/reaction records;by using the record ID in a URL query parameter; utility function.
+
   [ DELETE route: /api/users/:userId/noFriendsOrThoughts ]
+
   [ route title in Insomnia: User -- Delete By /ID But Not Also Delete Associated Thoughts and Reactions ]
 
 * DELETE all user records; utility function.
+
   [ DELETE route: /api/users/delete/all ]
+
   [ route title in Insomnia: User -- Delete All ]
 
 * PUT-add a thought record reference ID in/to the thoughts field array of a user record; by using the record ID in a URL query parameter; utility function.
+
   [ PUT route: /api/users/:userId/thoughts/:thoughtId ]
+
   [ route title in Insomnia: User -- Add Thought ]
 
 * DELETE-remove a thought record reference ID from the thoughts field array of an user record; by using the record ID in a URL query parameter; utility function.
+
   [ DELETE route: /api/users/:userId/thoughts/:thoughtId ]
+
   [ route title in Insomnia: User -- Remove Thought ]
 
-* GET an aggregate total summary of users
+* GET an aggregate total summary of users.
+
   [ GET route: /api/users/aggregate/usersCountTotal ]
+
   [ route title in Insomnia: Users -- Aggregate Count Total ]
 
 #### >>> Friend User records: [ base route: /api/users ] <<<
@@ -144,68 +172,99 @@ Additional User features/routes:
 (arrays of user record ID references in the user records of the 2 friends)
 
 * PUT-update-add a new friend record by adding a friend user record reference ID to the initiating user's friend list array in their user record (but not actually POST-creating any user record); by using in URL query parameters the ID of the involved initiating user record and the ID of the involved friend user record; and during that process a new record ID is NOT automatically created because the involved friend user records already exist and only the friend reference ID storage/placement is new.
+
 + BONUS EXTRA WORK: Additionally PUT-update-add a corresponding befriending user's user record reference ID to the friend's friend list array their user record. 
+
   [ PUT route: /api/users/:userId/friends/:friendId]
+
   [ route title in Insomnia: User -- Add Friend and Also Add Self-Reference in Friend ]
 
 * DELETE-update-remove a friend user record reference ID from the initiating user's friend list array in their user record (but not actually DELETE-ing any user record); by using in URL query parameters the ID of the involved initiating user record and the ID of the involved friend user record.
-+ BONUS EXTRA WORK: Additionally UPDATE-remove a corresponding current-befriended user's user record reference ID from the involved friend's friend list array in their user record. 
+
++ BONUS EXTRA WORK: Additionally UPDATE-remove a corresponding current-befriended user's user record reference ID from the involved friend's friend list array in their user record.
+
   [ DELETE route: /api/users/:userId/friends/:friendId]
+
   [ route title in Insomnia: User -- Remove Friend and Also Remove Self-Reference in Friend ]
 
 Additional friend features/routes:
 
 * PUT-update-add a friend ID reference record in/to an initiating user record but do not also add the friend ID reference record in/to the associated friend user record; utility function.
+
   [ PUT route: /api/users/:userId/friends/:friendId/noSelf ]
+
   [ route title in Insomnia: User -- Add Friend but Not Also Add Self-Reference in Friend ]
 
 * DELETE-update-remove a friend ID reference record from an initiating user record but do not also remove the friend ID reference record from the associated friend user record; utility function.
+
   [ DELETE route: /api/users/:userId/friends/:friendId/noSelf ]
+
   [ route title in Insomnia: User -- Remove Friend but Also Not Remove Self-Reference in Friend ]
 
-* GET an aggregate total summary of friendships (friend amount divided by 2)
+* GET an aggregate total summary of friendships (friend amount divided by 2).
+
   [ GET route: /api/users/aggregate/friendsCountTotal ]
+
   [ route title in Insomnia: Friendships -- Aggregate Count Total ]
 
 #### >>> Thought records: [ base route: /api/thoughts ] <<<
 
 * GET all thought records and display a summarized listing.
+
   [ GET route: /api/thoughts/ ]
+
   [ route title in Insomnia: Thoughts -- Get All and Also Get All Associated Reactions ]
 
 * GET a single thought record and display a detailed view that includes populated reaction data; by using the record ID in a URL query parameter.
+
   [ GET route: /api/thoughts/:userId ]
+
   [ route title in Insomnia: Thought -- Get By /ID and Also Get Associated Reactions ]
 
 * POST-create a new thought record and update the thoughts array field of the involved user record; by using the user record ID in a URL query parameter and by using an HTTP request form and JSON format to provide the necessary field data: thoughtText and username; and during that process a new record ID is automatically created for the thought record.
+
   [ POST route: /api/thoughts/ + JSON form ]
+
   [ route title in Insomnia: Thought -- Create By Form and Also Update Associated User ]
 
 * PUT-update a thought record; by using the record ID in a URL query parameter and by using an HTTP request form and JSON format to provide the necessary field data: thoughtText and username.
+
   [ PUT route: /api/thoughts/:thoughtID + JSON form ]
+
   [ route title in Insomnia: Thought -- Update By /ID and Form ]
 
 * DELETE a thought record; by using the record ID in a URL query parameter; and during this process all of the embedded associated reaction records are also deleted.
+
 + BONUS EXTRA WORK: Additionally UPDATE-remove the record reference ID that is in the thoughts field array of the associated user record.
+
   [ DELETE route: /api/thoughts/:userId ]
+
   [ route title in Insomnia: Thought -- Delete By /ID and Also Update Associated User and Delete Associated Reactions ]
 
 Additional thought features/routes:
 
 * POST-create a new thought record but do not update the associated user record; utility function.
+
   [ POST route: /api/thoughts/noUser + JSON form ]
+
   [ route title in Insomnia: Thought -- Create By Form But Not Also Update Associated User ]
 
 * DELETE a thought record (and the associated reaction record) but do not update the associated user record; utility function.
+
   [ DELETE route: /api/thoughts/noUser ]
+
   [ route title in Insomnia: Thought -- Delete By /ID and Also Delete Associated Reactions But Not Also Update Associated User ]
 
 * DELETE all thought (and reaction) records; utility function.
+
   [ DELETE route: /api/thoughts/delete/all ]
+
   [ route title in Insomnia: Thoughts -- Delete All and Also Delete Associated Reactions ]
 
-* GET Aggregate total summary of thoughts
+* GET Aggregate total summary of thoughts.
+
   [ GET route: /api/thoughts/aggregate/thoughtsCountTotal ]
+
   [ route title in Insomnia: Thought -- Aggregate Count Total ]
 
 #### >>> Reaction records: [ base route: /api/thoughts ] <<<
@@ -213,29 +272,41 @@ Additional thought features/routes:
 (embedded-document records that are within and part of a thought record; and the reaction records have IDs of their own)
 
 * PUT-create-add a reaction record in the reactions array field that is in a corresponding thought record; and during that process a new record ID is automatically created for the reaction record.
+
   [ PUT route: /api/thoughts/:thoughtId/reactions/ + JSON form ]
+
   [ route title in Insomnia: Thought -- Create-Add Reaction ]
 
 * DELETE-remove-pull a reaction record from the reactions list array that is in the associated thought record; by using in URL query parameters the ID of the involved thought record and the ID of the involved reaction record.
+
   [ DELETE route: /api/thoughts/:thoughtId/reactions/:reactionId ]
+
   [ route title in Insomnia: Thought -- Delete Reaction by ID ]
 
 Additional reaction features/routes:
 
 * GET all reaction records and display a summarized listing.
+
   [ GET route: /api/thoughts/users/reactions/ ]
+
   [ route title in Insomnia: Thought -- Get All Reactions ]
 
 * GET a single reaction record and display a detailed view; by using the record ID in a URL query parameter.
+
   [ GET route: /api/thoughts/users/reactions/:reactionId ]
+
   [ route title in Insomnia: Thought -- Get Reaction By ID ]
 
 * DELETE all reaction (and thought) records; utility function.
+
   [ DELETE route: /api/thoughts/reactions/ ]
+
   [ route title in Insomnia: ]
 
-* GET an aggregate total summary of reactions
+* GET an aggregate total summary of reactions.
+
   [ GET route: /api/thoughts/aggregate/reactionsCountTotal ]
+
   [ route title in Insomnia: Thoughts -- Reactions Aggregate Count Total ]
 
 
