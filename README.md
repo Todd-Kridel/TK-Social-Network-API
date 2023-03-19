@@ -106,7 +106,7 @@ To use this application...at after when installing the application and its datab
 
 * DELETE a user record; by using the record ID in a URL query parameter.
 
->> BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.
+> BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.
 
   [ DELETE route: /api/users/:userId/andThoughts ]
 
@@ -174,7 +174,7 @@ Additional User features/routes:
 
 * PUT-update-add a new friend record by adding a friend user record reference ID to the initiating user's friend list array in their user record (but not actually POST-creating any user record); by using in URL query parameters the ID of the involved initiating user record and the ID of the involved friend user record; and during that process a new record ID is NOT automatically created because the involved friend user records already exist and only the friend reference ID storage/placement is new.
 
->> BONUS EXTRA WORK: Additionally PUT-update-add a corresponding befriending user's user record reference ID to the friend's friend list array their user record. 
+> BONUS EXTRA WORK: Additionally PUT-update-add a corresponding befriending user's user record reference ID to the friend's friend list array their user record. 
 
   [ PUT route: /api/users/:userId/friends/:friendId]
 
@@ -182,7 +182,7 @@ Additional User features/routes:
 
 * DELETE-update-remove a friend user record reference ID from the initiating user's friend list array in their user record (but not actually DELETE-ing any user record); by using in URL query parameters the ID of the involved initiating user record and the ID of the involved friend user record.
 
->> BONUS EXTRA WORK: Additionally UPDATE-remove a corresponding current-befriended user's user record reference ID from the involved friend's friend list array in their user record.
+> BONUS EXTRA WORK: Additionally UPDATE-remove a corresponding current-befriended user's user record reference ID from the involved friend's friend list array in their user record.
 
   [ DELETE route: /api/users/:userId/friends/:friendId]
 
