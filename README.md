@@ -311,6 +311,352 @@ Additional reaction features/routes:
   [ route title in Insomnia: Thoughts -- Reactions Aggregate Count Total ]
 
 
+### Sample Data (Illustration of Schema/Model Content and Query Result Layout)
+
+The Social Media API application system contains the following structures of user record data and thought record data and reaction record data...similar to what is illustrated at below. 
+
+#### User Data (Summary/All Record View)
+
+[
+	{
+		"_id": "6417cd256b278ee73c2061ea",
+		"username": "testuser1",
+		"email": "test.user1@email.com",
+		"_userCounter": 1,
+		"thoughts": [
+			"6417cd37f6d5a906778a7a88",
+			"6417cd52f6d5a906778a7a91",
+			"6417cdb9f6d5a906778a7aa1"
+		],
+		"_friendCounter": 2,
+		"friends": [
+			"6417cd256b278ee73c2061eb",
+			"6417cd256b278ee73c2061ed"
+		],
+		"thoughtCount": 3,
+		"friendCount": 2
+	},
+	{
+		"_id": "6417cd256b278ee73c2061eb",
+		"username": "testuser2",
+		"email": "test.user2@email.com",
+		"_userCounter": 1,
+		"thoughts": [
+			"6417cda6f6d5a906778a7a9b"
+		],
+		"_friendCounter": 2,
+		"friends": [
+			"6417cd256b278ee73c2061ea",
+			"6417cd256b278ee73c2061ec"
+		],
+		"thoughtCount": 1,
+		"friendCount": 2
+	},
+	{
+		"_id": "6417cd256b278ee73c2061ec",
+		"username": "testuser3",
+		"email": "test.user3@email.com",
+		"_userCounter": 1,
+		"thoughts": [],
+		"_friendCounter": 1,
+		"friends": [
+			"6417cd256b278ee73c2061eb"
+		],
+		"thoughtCount": 0,
+		"friendCount": 1
+	},
+	{
+		"_id": "6417cd256b278ee73c2061ed",
+		"username": "testuser4",
+		"email": "test.user4@email.com",
+		"_userCounter": 1,
+		"thoughts": [
+			"6417cdb0f6d5a906778a7a9e"
+		],
+		"_friendCounter": 1,
+		"friends": [
+			"6417cd256b278ee73c2061ea"
+		],
+		"thoughtCount": 1,
+		"friendCount": 1
+	},
+	{
+		"thoughts": [],
+		"friends": [],
+		"_friendCounter": 0,
+		"_id": "6417cd256b278ee73c2061ee",
+		"username": "testuser5",
+		"email": "test.user5@email.com",
+		"_userCounter": 1,
+		"thoughtCount": 0,
+		"friendCount": 0
+	}
+]
+
+#### User Data (Single/Individual Detailed Record View)
+
+{
+	"_id": "6417cd256b278ee73c2061ea",
+	"username": "testuser1",
+	"email": "test.user1@email.com",
+	"_userCounter": 1,
+	"thoughts": [
+		{
+			"_id": "6417cd37f6d5a906778a7a88",
+			"thoughtText": "...a thought by testuser1...",
+			"createdAt": "3/19/2023",
+			"username": "testuser1",
+			"_thoughtCounter": 1,
+			"reactions": [
+				{
+					"reactionId": "6417cd2af6d5a906778a7a85",
+					"reactionBody": "TEST REACTION",
+					"username": "testuser3",
+					"createdAt": "3/19/2023",
+					"_reactionCounter": 1,
+					"_id": "6417ce45f6d5a906778a7aa4"
+				}
+			],
+			"reactionsCount": 1
+		},
+		{
+			"_id": "6417cd52f6d5a906778a7a91",
+			"thoughtText": "...a thought by testuser1...",
+			"createdAt": "3/19/2023",
+			"username": "testuser1",
+			"_thoughtCounter": 1,
+			"reactions": [],
+			"reactionsCount": 0
+		},
+		{
+			"_id": "6417cdb9f6d5a906778a7aa1",
+			"thoughtText": "...a thought by testuser1...",
+			"createdAt": "3/19/2023",
+			"username": "testuser1",
+			"_thoughtCounter": 1,
+			"reactions": [],
+			"reactionsCount": 0
+		}
+	],
+	"_friendCounter": 2,
+	"friends": [
+		{
+			"_id": "6417cd256b278ee73c2061eb",
+			"username": "testuser2",
+			"email": "test.user2@email.com",
+			"_userCounter": 1,
+			"thoughts": [
+				"6417cda6f6d5a906778a7a9b"
+			],
+			"_friendCounter": 2,
+			"friends": [
+				"6417cd256b278ee73c2061ea",
+				"6417cd256b278ee73c2061ec"
+			],
+			"thoughtCount": 1,
+			"friendCount": 2
+		},
+		{
+			"_id": "6417cd256b278ee73c2061ed",
+			"username": "testuser4",
+			"email": "test.user4@email.com",
+			"_userCounter": 1,
+			"thoughts": [
+				"6417cdb0f6d5a906778a7a9e"
+			],
+			"_friendCounter": 1,
+			"friends": [
+				"6417cd256b278ee73c2061ea"
+			],
+			"thoughtCount": 1,
+			"friendCount": 1
+		}
+	],
+	"thoughtCount": 3,
+	"friendCount": 2
+}
+
+#### User Aggregate Summary
+
+[
+	{
+		"_id": null,
+		"userCountTotal": 5
+	}
+]
+
+#### Friend Aggregate Summary
+
+[
+	{
+		"_id": null,
+		"friendshipsCountTotal": 3
+	}
+]
+
+#### Thought and Reaction Combined Data (Summary/All Record View)
+
+[
+	{
+		"_id": "6417cd37f6d5a906778a7a88",
+		"username": "testuser1",
+		"reactionId": [
+			"6417ce45f6d5a906778a7aa4"
+		],
+		"reactionCount": 1
+	},
+	{
+		"_id": "6417cd52f6d5a906778a7a91",
+		"username": "testuser1",
+		"reactionId": [],
+		"reactionCount": 0
+	},
+	{
+		"_id": "6417cda6f6d5a906778a7a9b",
+		"username": "testuser2",
+		"reactionId": [
+			"6417ce66f6d5a906778a7aa8"
+		],
+		"reactionCount": 1
+	},
+	{
+		"_id": "6417cdb0f6d5a906778a7a9e",
+		"username": "testuser4",
+		"reactionId": [],
+		"reactionCount": 0
+	},
+	{
+		"_id": "6417cdb9f6d5a906778a7aa1",
+		"username": "testuser1",
+		"reactionId": [],
+		"reactionCount": 0
+	}
+]
+
+#### Thought and Reaction Combined Data (Single/Individual Detailed Record View)
+
+{
+	"_id": "6417cd37f6d5a906778a7a88",
+	"thoughtText": "...a thought by testuser1...",
+	"createdAt": "3/19/2023",
+	"username": "testuser1",
+	"_thoughtCounter": 1,
+	"reactions": [
+		{
+			"reactionId": "6417cd2af6d5a906778a7a85",
+			"reactionBody": "TEST REACTION",
+			"username": "testuser3",
+			"createdAt": "3/19/2023",
+			"_reactionCounter": 1,
+			"_id": "6417ce45f6d5a906778a7aa4"
+		}
+	],
+	"reactionsCount": 1
+}
+
+#### Reaction Data (Summary/All Record View)
+
+[
+	{
+		"_id": "6417cd37f6d5a906778a7a88",
+		"reactions": [
+			{
+				"reactionId": "6417cd2af6d5a906778a7a85",
+				"reactionBody": "TEST REACTION",
+				"username": "testuser3",
+				"createdAt": "3/19/2023",
+				"_reactionCounter": 1,
+				"_id": "6417ce45f6d5a906778a7aa4"
+			}
+		],
+		"reactionsCount": 1
+	},
+	{
+		"_id": "6417cd52f6d5a906778a7a91",
+		"reactions": [],
+		"reactionsCount": 0
+	},
+	{
+		"_id": "6417cda6f6d5a906778a7a9b",
+		"reactions": [
+			{
+				"reactionId": "6417cd2af6d5a906778a7a85",
+				"reactionBody": "TEST REACTION",
+				"username": "testuser1",
+				"createdAt": "3/19/2023",
+				"_reactionCounter": 1,
+				"_id": "6417ce66f6d5a906778a7aa8"
+			}
+		],
+		"reactionsCount": 1
+	},
+	{
+		"_id": "6417cdb0f6d5a906778a7a9e",
+		"reactions": [],
+		"reactionsCount": 0
+	},
+	{
+		"_id": "6417cdb9f6d5a906778a7aa1",
+		"reactions": [],
+		"reactionsCount": 0
+	}
+]
+
+#### Reaction (Single/Individual Detailed Record View)
+
+[
+	{
+		"_id": "6417cd37f6d5a906778a7a88",
+		"reactions": [
+			{
+				"reactionId": "6417cd2af6d5a906778a7a85",
+				"reactionBody": "TEST REACTION",
+				"username": "testuser3",
+				"createdAt": "3/19/2023",
+				"_reactionCounter": 1,
+				"_id": "6417ce45f6d5a906778a7aa4"
+			}
+		],
+		"reactionsCount": 1
+	}
+]
+
+#### Thought Aggregate Summary
+
+[
+	{
+		"_id": "6417cdb9f6d5a906778a7aa1",
+		"thoughtCountTotal": 1
+	},
+	{
+		"_id": "6417cda6f6d5a906778a7a9b",
+		"thoughtCountTotal": 1
+	},
+	{
+		"_id": "6417cd37f6d5a906778a7a88",
+		"thoughtCountTotal": 1
+	},
+	{
+		"_id": "6417cdb0f6d5a906778a7a9e",
+		"thoughtCountTotal": 1
+	},
+	{
+		"_id": "6417cd52f6d5a906778a7a91",
+		"thoughtCountTotal": 1
+	}
+]
+
+#### Reaction Aggregate Summary
+
+[
+	{
+		"_id": "6417cd2af6d5a906778a7a85",
+		"count": 2,
+		"reactionCounter": 2
+	}
+]
+
+
 ## Credits 
 
 * Continued informational and cognitive struggle and persistence were required.
