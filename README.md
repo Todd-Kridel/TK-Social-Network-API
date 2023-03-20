@@ -9,7 +9,6 @@
 * [Usage and Features](#usage-and-features) 
 * [Credits](#credits)
 * [License](#license) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-* [Features](#features)
 * [Questions](#questions)
 
 
