@@ -110,7 +110,7 @@ To use this application...at after when installing the application and its datab
 
   [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Thoughts and Reactions]
 
-> **BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
+> **BONUS (COMPLETED): Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
 
 Additional User features/routes:
 
