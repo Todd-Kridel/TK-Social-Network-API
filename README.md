@@ -106,7 +106,7 @@ To use this application...at after when installing the application and its datab
 
 * DELETE a user record; by using the record ID in a URL query parameter.
 
-> BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.
+> **BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
 
   [ DELETE route: /api/users/:userId/andThoughts ]
 
