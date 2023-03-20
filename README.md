@@ -106,11 +106,11 @@ To use this application...at after when installing the application and its datab
 
 * DELETE a user record; by using the record ID in a URL query parameter.
 
-> **BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
-
   [ DELETE route: /api/users/:userId/andThoughts ]
 
   [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Thoughts and Reactions]
+
+> **BONUS: Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
 
 Additional User features/routes:
 
@@ -137,8 +137,8 @@ Additional User features/routes:
   [ DELETE route: /api/users/ ]  [ * DO NOT USE YET * ]
 
   [ route title in Insomnia: User -- Delete By /ID and Also Delete Associated Friends and Thoughts and Reactions ]
-  
->> THE DEVELOPMENT OF THIS DESIRED EVENTUAL ALL-INCLUSIVE FUNCTION CONTINUES TO BE IN-PROGRESS (with some re-occurring functional bugs/glitches) *; and during the in-progress time there are 2 function-pair-usages (at above) that each can achieve the same effect (DELETE user and thought/reaction records + UPDATE-remove friend ID reference records; or DELETE user and friend ID references + DELETE thought/reaction records).
+
+>> THE DEVELOPMENT OF THIS DESIRED EVENTUAL ALL-INCLUSIVE FUNCTION CONTINUES TO BE IN-PROGRESS (with some re-occurring functional bugs/glitches); and during the in-progress time there are 2 function-pair-usages (at above) that each can achieve the same effect (DELETE user and thought/reaction records + UPDATE-remove friend ID reference records; or DELETE user and friend ID references + DELETE thought/reaction records).
 
 * DELETE a user record but do not also update friend user records or delete thought/reaction records;by using the record ID in a URL query parameter; utility function.
 
