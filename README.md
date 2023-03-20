@@ -644,7 +644,7 @@ The Social Media API application system contains and uses structures of user rec
 
 ]
 
-#### Friend Aggregate Summary
+#### Friend Aggregate Summary (total friend amount divided by 2; 2 friends = 1 friendship)
 
 [
 
