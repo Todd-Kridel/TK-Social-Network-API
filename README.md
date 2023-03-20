@@ -107,7 +107,7 @@ To use this application...at after when installing the application and its datab
 
   [ DELETE route: /api/users/:userId/andThoughts ]
 
-  [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Thoughts and Reactions]
+  [ route title in Insomnia: User -- Delete By /ID and Also Delete User Reference From Associated Thoughts and Reactions ]
 
 > **BONUS (COMPLETED): Additionally DELETE all of the thought records and embedded reaction records that are associated with a user record that is deleted.**
 
@@ -177,7 +177,7 @@ Additional User features/routes:
 
 > BONUS EXTRA WORK: Additionally PUT-update-add a corresponding befriending user's user record reference ID to the friend's friend list array their user record. 
 
-  [ PUT route: /api/users/:userId/friends/:friendId]
+  [ PUT route: /api/users/:userId/friends/:friendId ]
 
   [ route title in Insomnia: User -- Add Friend and Also Add Self-Reference in Friend ]
 
@@ -185,7 +185,7 @@ Additional User features/routes:
 
 > BONUS EXTRA WORK: Additionally UPDATE-remove a corresponding current-befriended user's user record reference ID from the involved friend's friend list array in their user record.
 
-  [ DELETE route: /api/users/:userId/friends/:friendId]
+  [ DELETE route: /api/users/:userId/friends/:friendId ]
 
   [ route title in Insomnia: User -- Remove Friend and Also Remove Self-Reference in Friend ]
 
