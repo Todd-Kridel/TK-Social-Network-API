@@ -67,7 +67,7 @@ The assignment application is a route-response-only backend data-processing syst
 * Showing GET routes returning a single user and a single thought and a single reaction.
 * Showing the POST and PUT and DELETE routes for users.
 * Showing the POST and DELETE routes for a user's friend list.
-* Showing the POST and PUT and and DELETE routes for thoughts.
+* Showing the POST and PUT and DELETE routes for thoughts.
 * Showing the POST and DELETE routes for thought reactions.
 
 To use this application...at after when installing the application and its database (by seeding it) and then using the "node server" command to start the application...explore the system and see its flow of data by using the Insomnia application and a combination of the following demo videos and the data URL routes (user, thought, friend, reaction) that are indicated at below.
